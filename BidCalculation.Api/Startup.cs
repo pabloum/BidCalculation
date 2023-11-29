@@ -1,4 +1,6 @@
-namespace BidCalculation.Api.Controllers;
+using BidCalculation.Api.Middleware;
+
+namespace BidCalculation.Api;
 
 public class Startup
 {
@@ -24,6 +26,8 @@ public class Startup
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+
+        app.UseMiddleware<HandleExceptions>();
 
         app.UseHttpsRedirection();
 
