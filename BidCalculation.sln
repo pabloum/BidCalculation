@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BidCalculation.Persistence"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BidCalculation.Domain", "BidCalculation.Domain\BidCalculation.Domain.csproj", "{0A4C34EE-BAA7-4BAE-9D12-6BA72C9AF574}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BidCalculation.Test", "BidCalculation.Test\BidCalculation.Test.csproj", "{1DE5B377-1E15-4220-BF99-A42B42FEBFBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{0A4C34EE-BAA7-4BAE-9D12-6BA72C9AF574}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A4C34EE-BAA7-4BAE-9D12-6BA72C9AF574}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A4C34EE-BAA7-4BAE-9D12-6BA72C9AF574}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DE5B377-1E15-4220-BF99-A42B42FEBFBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DE5B377-1E15-4220-BF99-A42B42FEBFBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DE5B377-1E15-4220-BF99-A42B42FEBFBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DE5B377-1E15-4220-BF99-A42B42FEBFBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
