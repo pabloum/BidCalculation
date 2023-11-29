@@ -11,4 +11,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BidCalculation.Business\BidCalculation.Business.csproj" />
+    <ProjectReference Include="..\BidCalculation.Domain\BidCalculation.Domain.csproj" />
+    <ProjectReference Include="..\BidCalculation.Persistence\BidCalculation.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>
