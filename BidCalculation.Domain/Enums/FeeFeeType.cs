@@ -1,6 +1,6 @@
 namespace BidCalculation.Domain.Enums;
 
-public enum Fee 
+public enum FeeType 
 {
     BASIC = 1,
     SPECIAL, 
