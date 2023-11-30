@@ -1,5 +1,6 @@
 using BidCalculation.Business;
 using BidCalculation.Business.Implementations;
+using BidCalculation.Business.PriceCalculator;
 using BidCalculation.Domain;
 using BidCalculation.Domain.DTO;
 using BidCalculation.Domain.Enums;
@@ -12,7 +13,7 @@ public class ServicesTest
 
     public ServicesTest()
     {
-        _vehiclePriceService = new VehiclePriceService();
+        _vehiclePriceService = new VehiclePriceService(new FeeCalculator());
     }
 
     [Theory]
