@@ -17,8 +17,8 @@ public class VehicleTotalPriceController : ControllerBase
         _vehiclePriceService = vehiclePriceService;
     }
 
-    [HttpGet(Name = "GetVehicleTotalPrice")]
-    public IActionResult Get([FromBody]RequestVehiclePrice requestVehiclePrice)
+    [HttpPost("[action]")]
+    public IActionResult Calculate([FromBody]RequestVehiclePrice requestVehiclePrice)
     {
         var totalPrice = _vehiclePriceService.GetTotalPrice(requestVehiclePrice);
         return Ok(totalPrice);
