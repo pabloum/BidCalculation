@@ -15,6 +15,7 @@ public class HandleExceptions
         _statusCode = new Dictionary<Type, HttpStatusCode>
         {
             { typeof(ApplicationException), HttpStatusCode.PreconditionFailed },
+            // { typeof(AnotherTypeOfException), HttpStatusCode.BadRequest },
         };
     }
 
