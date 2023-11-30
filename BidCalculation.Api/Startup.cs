@@ -1,4 +1,6 @@
 using BidCalculation.Api.Middleware;
+using BidCalculation.Business;
+using BidCalculation.Business.Implementations;
 
 namespace BidCalculation.Api;
 
@@ -16,6 +18,7 @@ public class Startup
         services.AddControllers();
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
+        services.AddScoped<IVehiclePriceService, VehiclePriceService>();
     }
 
     public void RunApp(WebApplication app)

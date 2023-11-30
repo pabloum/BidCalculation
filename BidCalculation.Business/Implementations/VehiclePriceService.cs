@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using BidCalculation.Domain;
 using BidCalculation.Domain.DTO;
 using BidCalculation.Domain.Enums;
@@ -19,7 +20,7 @@ public class VehiclePriceService : IVehiclePriceService
         {
             BasePrice = requsetVehiclePrice.BasePrice,
             Fees = fees,
-            TotalPrice = requsetVehiclePrice.BasePrice + fees.Select(f => f.Cost).Sum() 
+            TotalPrice = Math.Round(requsetVehiclePrice.BasePrice + fees.Select(f => f.Cost).Sum(), 2) 
         };
     }
 
@@ -28,7 +29,7 @@ public class VehiclePriceService : IVehiclePriceService
         var vehicleType = requsetVehiclePrice.VehicleType;
         var basePrice = requsetVehiclePrice.BasePrice;
 
-        var fees = new List<Fee>();
+        var fees = new ConcurrentBag<Fee>();
 
         Parallel.Invoke(
             () => fees.Add(GetBasicFee(vehicleType, basePrice)),
@@ -40,19 +41,30 @@ public class VehiclePriceService : IVehiclePriceService
         return fees;
     }
 
-    private int CheckRange(int max, int min, ref int cost)
+    private double CheckRange(double min, double max, ref double cost)
     {
-        return Math.Clamp(cost, min, max);
+        if (cost < min)
+        {
+            return min;
+        }
+        else if (cost > max) 
+        {
+            return max;
+        }
+        else 
+        {
+            return cost;
+        }
     }
 
     private Fee GetBasicFee(VehicleType vehicleType, int basePrice)
     {
-        var cost = (int)(basePrice * 0.1);
+        var cost = basePrice * 0.1;
 
         return new Fee
         {
             Type = FeeType.BASIC,
-            Cost = (int)(vehicleType == VehicleType.COMMON ? CheckRange(10, 50, ref cost) : CheckRange(25, 200, ref cost))
+            Cost = Math.Round(vehicleType == VehicleType.COMMON ? CheckRange(10, 50, ref cost) : CheckRange(25, 200, ref cost),2)
         };
     }
 
@@ -61,7 +73,7 @@ public class VehiclePriceService : IVehiclePriceService
         return new Fee
         {
             Type = FeeType.SPECIAL,
-            Cost = (int)(vehicleType == VehicleType.COMMON ? basePrice * 0.02 : basePrice * 0.04)
+            Cost = Math.Round(vehicleType == VehicleType.COMMON ? basePrice * 0.02 : basePrice * 0.04, 2)
         };
     }
 
