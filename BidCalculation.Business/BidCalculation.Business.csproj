@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\BidCalculation.Persistence\BidCalculation.Persistence.csproj" />
     <ProjectReference Include="..\BidCalculation.Domain\BidCalculation.Domain.csproj" />
   </ItemGroup>
 
